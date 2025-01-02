@@ -1,3 +1,5 @@
+serialization = require("serialization")
+
 title = "LACYOABBAWYCYOOTSOKAAVN"
 
 function invalid()
