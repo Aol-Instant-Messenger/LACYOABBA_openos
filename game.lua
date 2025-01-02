@@ -1,4 +1,4 @@
-title = "LACYOABBCWYCYOOTSO"
+title = "LACYOABBAWYCYOOTSOKAAVN"
 
 function invalid()
     print("\nYou entered an invalid character.\nIt has costed you this run.\n")
@@ -9,6 +9,7 @@ os.execute("clear")
 
 -- print welcome message
 print("Welcome to " .. title)
+print("Made by Phleggmboi")
 
 os.execute("sleep 0.5")
 
