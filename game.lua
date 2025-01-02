@@ -1,3 +1,5 @@
+serialization = require("serialization")
+
 title = "LACYOABBAWYCYOOTSOKAAVN"
 
 function invalid()
@@ -99,7 +101,6 @@ local persistent = {
     ending9 = false,
     ending10 = false,
 }
-serialization = require("serialization")
 if exists("/usr/LACYOABBA/persistent") then
     local file = io.open("/usr/LACYOABBA/persistent", "r")
     persistent = serialization.unserialize(file.readAll())
