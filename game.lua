@@ -105,7 +105,7 @@ if exists("/usr/LACYOABBA/persistent") then
     file.close()
 else
     local file = assert(io.open("/usr/LACYOABBA/persistent", "w"))
-    file:write(textutils.serialize(persistent))
+    file:write(serialization.serialize(persistent))
     file:close()
 end
 
