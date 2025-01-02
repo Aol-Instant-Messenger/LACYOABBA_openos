@@ -1,5 +1,3 @@
-serialization = require("serialization")
-
 title = "LACYOABBAWYCYOOTSOKAAVN"
 
 function invalid()
@@ -24,56 +22,55 @@ function isdir(path)
    return exists(path.."/")
 end
 
+local char = {
+    unk = "???: ",
+    MC = "Me: ",
+    lead = "Counselor Baldur: ",
+    S = "Madeline: ",
+    T = "Natalie: ",
+    E = "Eleanor: ",
+    A = "Cordelia: ",
+    M = "Violet: ",
+    narrator = ": ",
+}
+local file = assert(io.open("characters", "w"))
+file:write(serialization.serialize(char))
+file:close()
 
--- Create characters
-unk = "???: "
-MC = "Me: "
-lead = "Counselor Baldur: "
-S = "Madeline: "
-T = "Natalie: "
-E = "Eleanor: "
-A = "Cordelia: "
-M = "Violet: "
-narrator = ": "
-
--- Met variables
-meetS = false
-meetT = false
-meetE = false
-meetA = false
-meetM = false
-
--- Route variables
-sciRoute = false
-techRoute = false
-engRoute = false
-artRoute = false
-mathRoute = false
-routeID = 6
-
--- Interest variables
-sciInterest = false
-sciUnsure = false
-sciDisinterest = false
-
-techInterest = false
-techUnsure = false
-techDisinterest = false
-
-engInterest = false
-engUnsure = false
-engDisinterest = false
-
-artInterest = false
-artUnsure = false
-artDisinterest = false
-artnot_met = false
-artIndecisive = false
-artPerv = false
-
-mathInterest = false
-mathUnsure = false
-mathDisinterest = false
+local var = {
+    meetS = false,
+    meetT = false,
+    meetE = false,
+    meetA = false,
+    meetM = false,
+    sciRoute = false,
+    techRoute = false,
+    engRoute = false,
+    artRoute = false,
+    mathRoute = false,
+    routeID = 6,
+    sciInterest = false,
+    sciUnsure = false,
+    sciDisinterest = false,
+    techInterest = false,
+    techUnsure = false,
+    techDisinterest = false,
+    engInterest = false,
+    engUnsure = false,
+    engDisinterest = false,
+    artInterest = false,
+    artUnsure = false,
+    artDisinterest = false,
+    artnot_met = false,
+    artIndecisive = false,
+    artPerv = false,
+    mathInterest = false,
+    mathUnsure = false,
+    mathDisinterest = false,
+}
+local file = assert(io.open("save", "w"))
+file:write(serialization.serialize(var))
+file:close()
 
 -- Persistent variables
 if not isdir("/usr/LACYOABBA") then
