@@ -6,16 +6,26 @@ function invalid()
     print("\nYou entered an invalid character.\nIt has costed you this run.\n")
 end
 
---- Check if a file or directory exists in this path
-function exists(name)
-   local f=io.open(name,"r")
-   if f~=nil then io.close(f) return true else return false end
+function exists(file)
+  -- some error codes:
+  -- 13 : EACCES - Permission denied
+  -- 17 : EEXIST - File exists
+  -- 20	: ENOTDIR - Not a directory
+  -- 21	: EISDIR - Is a directory
+  --
+  local isok, errstr, errcode = os.rename(file, file)
+  if isok == nil then
+     if errcode == 13 then 
+        -- Permission denied, but it exists
+        return true
+     end
+     return false
+  end
+  return true
 end
 
---- Check if a directory exists in this path
 function isdir(path)
-   -- "/" works on both Unix and Windows
-   return exists(path.."/")
+  return file_exists(path .. "/")
 end
 
 local char = {
@@ -67,11 +77,6 @@ local var = {
 local file = assert(io.open("save", "w"))
 file:write(serialization.serialize(var))
 file:close()
-
--- Persistent variables
-if not isdir("/usr/LACYOABBA") then
-    os.execute("mkdir /usr/LACYOABBA")
-end
 
 local persistent = {
     sciEver = false,
