@@ -99,6 +99,16 @@ local persistent = {
     ending9 = false,
     ending10 = false,
 }
+if exists("/usr/LACYOABBA/persistent") then
+    local file = io.open("/usr/LACYOABBA/persistent", "r")
+    persistent = serialization.unserialize(file.readAll())
+    file.close()
+else
+    local file = assert(io.open("/usr/LACYOABBA/persistent", "w"))
+    file:write(textutils.serialize(persistent))
+    file:close()
+end
+
 
 -- clear screen
 os.execute("clear")
