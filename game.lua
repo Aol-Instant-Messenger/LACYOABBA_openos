@@ -39,7 +39,7 @@ local char = {
     M = "Violet: ",
     narrator = ": ",
 }
-local file = assert(io.open("./characters", "w"))
+local file = assert(io.open("/usr/LACYOABBA/characters", "w"))
 file:write(serialization.serialize(char))
 file:close()
 
@@ -74,7 +74,7 @@ local var = {
     mathUnsure = false,
     mathDisinterest = false,
 }
-local file = assert(io.open("./save", "w"))
+local file = assert(io.open("/usr/LACYOABBA/save", "w"))
 file:write(serialization.serialize(var))
 file:close()
 
